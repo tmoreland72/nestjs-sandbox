@@ -1,0 +1,78 @@
+@baseUrl = http://localhost:3000
+@usersApi = {{baseUrl}}/users
+@api = {{baseUrl}}/reports
+
+### Signin
+POST {{usersApi}}/signin
+content-type: application/json
+
+{
+   "email": "goof@email.com",
+   "password": "Password1"
+}
+
+
+### Get all reports
+GET {{api}}
+
+### Create report
+POST {{api}}
+content-type: application/json
+
+{
+   "make": "Hyundai",
+   "model": "Tucson",
+   "year": 2023,
+   "price": 38000.0,
+   "mileage": 0,
+   "lat": 29.942954,
+   "lng": -95.7243463
+}
+
+### Signin
+POST {{api}}/signin
+content-type: application/json
+
+{
+   "email": "goof@email.com",
+   "password": "Password1"
+}
+
+### Whoami
+GET {{api}}/whoami
+
+### Signin Fail
+POST {{api}}/signin
+content-type: application/json
+
+{
+   "email": "goof@email.com",
+   "password": "Password1XXXX"
+}
+
+### Signout
+POST {{api}}/signout
+
+### Create a report should fail
+POST {{api}}/signup
+content-type: application/json
+
+{
+   "name": "Sam Spade",
+   "email": "same_spade.local",
+   "password": "P"
+}
+
+### Get report by id
+GET {{api}}/6
+
+### Update a report
+PATCH {{api}}/1
+content-type: application/json
+
+{
+   "email": "sam@spade.local"
+}
+
+### Delete a report
+DELETE {{api}}/5

@@ -1,0 +1,63 @@
+@baseUrl = http://localhost:3000
+@usersApi = {{baseUrl}}/users
+
+### Get all users
+GET {{usersApi}}
+
+### Signup User
+POST {{usersApi}}/signup
+content-type: application/json
+
+{
+   "name": "Tim",
+   "email": "goof@email.com",
+   "password": "Password1"
+}
+
+### Signin
+POST {{usersApi}}/signin
+content-type: application/json
+
+{
+   "email": "goof@email.com",
+   "password": "Password1"
+}
+
+### Whoami
+GET {{usersApi}}/whoami
+
+### Signin Fail
+POST {{usersApi}}/signin
+content-type: application/json
+
+{
+   "email": "goof@email.com",
+   "password": "Password1XXXX"
+}
+
+### Signout
+POST {{usersApi}}/signout
+
+### Create a user should fail
+POST {{usersApi}}/signup
+content-type: application/json
+
+{
+   "name": "Sam Spade",
+   "email": "same_spade.local",
+   "password": "P"
+}
+
+### Get user by id
+GET {{usersApi}}/6
+
+### Update a user
+PATCH {{usersApi}}/1
+content-type: application/json
+
+{
+   "email": "sam@spade.local"
+}
+
+### Delete a user
+DELETE {{usersApi}}/5
